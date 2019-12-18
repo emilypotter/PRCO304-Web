@@ -8,12 +8,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './guards/auth.guard';
 import { CommonModule } from '@angular/common';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule } from '@angular/material';
+import { NgxLoadingModule } from 'ngx-loading';
+import { SpotService } from './services/spot.service';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +36,15 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     CommonModule,
-    NgtUniversalModule
+    NgtUniversalModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    NgxLoadingModule.forRoot({})
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
