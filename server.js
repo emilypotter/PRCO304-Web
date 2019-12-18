@@ -1,11 +1,8 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 const app = express();
 
-// CORS middleware
-app.use(cors());
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/swell'));

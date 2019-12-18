@@ -28,6 +28,11 @@ import { VgCoreModule } from 'videogular2/compiled/core';
 import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
 import { VgStreamingModule } from 'videogular2/compiled/streaming';
 import { ForecastComponent } from './components/forecast/forecast.component';
+import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,8 @@ import { ForecastComponent } from './components/forecast/forecast.component';
     SpotListComponent,
     SpotDetailComponent,
     CurrentConditionsComponent,
-    ForecastComponent
+    ForecastComponent,
+    NearbySpotsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,10 @@ import { ForecastComponent } from './components/forecast/forecast.component';
     VgOverlayPlayModule,
     VgBufferingModule,
     VgStreamingModule,
+    NgxSmartModalModule.forRoot(),
+    FontAwesomeModule,
+    NgxGalleryModule,
+    StarRatingModule.forRoot()
   ],
   providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]
