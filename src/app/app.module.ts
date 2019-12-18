@@ -1,23 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { NgxLoadingModule } from 'ngx-loading';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './components/register/register.component';
+import { SpotListComponent } from './components/spot-list/spot-list.component';
 import { AuthGuard } from './guards/auth.guard';
-import { CommonModule } from '@angular/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
-import { MatAutocompleteModule, MatInputModule, MatSelectModule, MatFormFieldModule } from '@angular/material';
-import { NgxLoadingModule } from 'ngx-loading';
 import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { WeatherService } from './services/weather.service';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    SpotListComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { WeatherService } from './services/weather.service';
     MatSelectModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    InfiniteScrollModule
   ],
   providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]
