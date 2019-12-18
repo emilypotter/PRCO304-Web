@@ -27,6 +27,7 @@ import { VgControlsModule } from 'videogular2/compiled/controls';
 import { VgCoreModule } from 'videogular2/compiled/core';
 import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
 import { VgStreamingModule } from 'videogular2/compiled/streaming';
+import { ForecastComponent } from './components/forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VgStreamingModule } from 'videogular2/compiled/streaming';
     ProfileComponent,
     SpotListComponent,
     SpotDetailComponent,
-    CurrentConditionsComponent
+    CurrentConditionsComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,
