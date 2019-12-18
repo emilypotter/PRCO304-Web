@@ -20,6 +20,13 @@ import { AuthGuard } from './guards/auth.guard';
 import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SpotDetailComponent } from './components/spot-detail/spot-detail.component';
+import { CurrentConditionsComponent } from './components/current-conditions/current-conditions.component';
+import { VgBufferingModule } from 'videogular2/compiled/buffering';
+import { VgControlsModule } from 'videogular2/compiled/controls';
+import { VgCoreModule } from 'videogular2/compiled/core';
+import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
+import { VgStreamingModule } from 'videogular2/compiled/streaming';
 
 @NgModule({
   declarations: [
@@ -29,7 +36,9 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    SpotListComponent
+    SpotListComponent,
+    SpotDetailComponent,
+    CurrentConditionsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,12 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MatFormFieldModule,
     ReactiveFormsModule,
     NgxLoadingModule.forRoot({}),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    VgStreamingModule,
   ],
   providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]

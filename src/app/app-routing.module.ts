@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SpotListComponent } from './components/spot-list/spot-list.component';
+import { SpotDetailComponent } from './components/spot-detail/spot-detail.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'region', component: SpotListComponent},
+  {path: 'spot', component: SpotDetailComponent}
 ];
 
 @NgModule({
