@@ -16,8 +16,8 @@ export class SpotService {
 
   public getSpotFromSurfline(): Observable<SurflineSpot[]> {
     let headers = new HttpHeaders();
-    headers = headers.set('Access-Control-Allow-Origin', '*');
-    return this.http.get<SurflineSpot[]>(`https://api.surfline.com/v1/mobile/report/${this.selectedSpot.surflineId}`, );
+    headers = headers.set('Access-Control-Allow-Origin', 'https://www.surfline.com');
+    return this.http.get<SurflineSpot[]>(`https://api.surfline.com/v1/mobile/report/${this.selectedSpot.surflineId}`, {headers} );
   }
 
   public getCurrentConditionsFromSurfline(): Observable<SurflineSpotConditions> {

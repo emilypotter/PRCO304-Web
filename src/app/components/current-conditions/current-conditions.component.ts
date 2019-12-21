@@ -46,4 +46,6 @@ export class CurrentConditionsComponent implements OnInit {
     });
   }
 
+  // NEXT: get surfline request working on heroku, star ratings, profile, fav spots, tests, spot pics
+
 }
