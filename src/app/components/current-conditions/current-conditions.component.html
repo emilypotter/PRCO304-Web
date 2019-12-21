@@ -1,15 +1,15 @@
-<div class="container" *ngIf="spot && conditions">
+<div class="container" *ngIf="conditions">
     <h1>
         {{spotService.selectedSpot.spotName}}
     </h1>
     <div class="row">
         <div id="image" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <!-- <img src={{spot.camera.cam_image}} alt="image spot"> -->
-            <vg-player>
+            <!-- <vg-player>
                 <video #myMedia autoplay="true" [vgHls]="spot.camera.m3u8" (onGetBitrates)="hlsBitrates = $event"
                     id="my-video" type="video/mp4" controls>
                 </video>
-            </vg-player>
+            </vg-player> -->
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="conditions">
             <ng-container [ngSwitch]=flat>
@@ -36,7 +36,7 @@
             <p id="description">
                 {{conditions.observation}}
             </p>
-            <table>
+            <!-- <table>
                 <tr>
                     <td class="type">{{spot.predicted.tide[0][0].type}}</td>
                     <td>{{spot.predicted.tide[0][0].clock_time}}</td>
@@ -57,7 +57,7 @@
                     <td>{{spot.predicted.tide[0][3].clock_time}}</td>
                     <td>{{spot.predicted.tide[0][3].height}} ft</td>
                 </tr>
-            </table>
+            </table> -->
         </div>
     </div>
 </div>

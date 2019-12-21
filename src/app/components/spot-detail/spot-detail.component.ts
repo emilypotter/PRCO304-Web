@@ -24,8 +24,12 @@ export class SpotDetailComponent implements OnInit {
   }
 
   private getSpotFromSurfline(): void {
-    this.spotService.getSpotFromSurfline().subscribe((data: SurflineSpot[]) => {
-      this.spot = data[0]; // data comes back as an array with one element so pick that one a assign it to spot
+    // this.spotService.getSpotFromSurfline().subscribe((data: SurflineSpot[]) => {
+    //   this.spot = data[0]; // data comes back as an array with one element so pick that one a assign it to spot
+    // });
+    this.spotService.getCurrentConditionsFromSurfline().subscribe(data => {
+      // this.spot = data[0];
+      console.log(data);
     });
   }
 

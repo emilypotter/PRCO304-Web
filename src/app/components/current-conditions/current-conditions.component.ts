@@ -18,7 +18,7 @@ export class CurrentConditionsComponent implements OnInit {
   public forecast: Wave[];
   public flat = false;
   public currentWeather: CurrentWeather;
-  @Input() spot: SurflineSpot;
+  // @Input() spot: SurflineSpot;
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
