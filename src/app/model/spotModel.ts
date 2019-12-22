@@ -6,6 +6,8 @@ export class Spot {
     surflineRegionId: string;
     imageUrl: string;
     googleId: string;
+    m3u8: string;
+    best: Best;
 }
 
 export class LambdaResponse {

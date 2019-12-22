@@ -1,5 +1,15 @@
 export class Forecast {
     data: Data;
+    associated: Associated;
+}
+
+export class Associated {
+    forecastLocation: ForecastLocation;
+}
+
+export class ForecastLocation {
+    lon: number;
+    lat: number;
 }
 
 export class Data {

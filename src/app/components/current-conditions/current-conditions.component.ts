@@ -27,6 +27,7 @@ export class CurrentConditionsComponent implements OnInit {
         this.weatherService.selectedSpot = spot[0];
         this.getConditions();
         this.getCurrentWeather();
+        console.log(this.spotService.selectedSpot);
       });
     });
   }

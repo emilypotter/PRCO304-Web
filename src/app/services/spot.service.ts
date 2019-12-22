@@ -14,11 +14,9 @@ export class SpotService {
   public selectedRegionId: string;
   public selectedSpot: Spot;
 
-  public getSpotFromSurfline(): Observable<SurflineSpot[]> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Access-Control-Allow-Origin', 'https://www.surfline.com');
-    return this.http.get<SurflineSpot[]>(`https://api.surfline.com/v1/mobile/report/${this.selectedSpot.surflineId}`, {headers} );
-  }
+  // public getSpotFromSurfline(): Observable<SurflineSpot[]> {
+  //   return this.http.get<SurflineSpot[]>(`https://api.surfline.com/v1/mobile/report/${this.selectedSpot.surflineId}` );
+  // }
 
   public getCurrentConditionsFromSurfline(): Observable<SurflineSpotConditions> {
     return this.http.get<SurflineSpotConditions>(`https://services.surfline.com/kbyg/spots/forecasts/conditions?spotId=${this.selectedSpot.surflineLongId}&days=1`);

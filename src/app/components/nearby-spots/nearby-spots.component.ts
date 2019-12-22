@@ -11,6 +11,7 @@ import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import 'hammerjs';
+import { Forecast } from 'src/app/model/forecastModel';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class NearbySpotsComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
   modalGalleryOptions: NgxGalleryOptions[];
   modalGalleryImages: NgxGalleryImage[];
-  @Input() spot: SurflineSpot;
+  @Input() spot: Forecast;
   @ViewChild('map', {static: true}) mapElement: ElementRef;
   map: google.maps.Map;
   public nearbyPlaces = [];
@@ -39,7 +40,7 @@ export class NearbySpotsComponent implements OnInit {
   public selectedPlace: any;
   public placeDetails: any;
 
-  constructor(private spotService: SpotService) { }
+  constructor(public spotService: SpotService) { }
 
   ngOnInit() {
     this.galleryImages = [];
@@ -68,13 +69,13 @@ export class NearbySpotsComponent implements OnInit {
     ];
     this.modalGalleryImages = [];
     const mapProperties = {
-      center: new google.maps.LatLng(this.spot.location.spot.lat, this.spot.location.spot.lon),
+      center: new google.maps.LatLng(this.spot.associated.forecastLocation.lat, this.spot.associated.forecastLocation.lon),
       zoom: 12,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
-    this.addMarker(this.spot.location.spot.lat, this.spot.location.spot.lon, this.spotService.selectedSpot.spotName);
-    this.nearbySearch(this.spot.location.spot.lat, this.spot.location.spot.lon);
+    this.addMarker(this.spot.associated.forecastLocation.lat, this.spot.associated.forecastLocation.lon, this.spotService.selectedSpot.spotName);
+    this.nearbySearch(this.spot.associated.forecastLocation.lat, this.spot.associated.forecastLocation.lon);
     this.placeSearch();
   }
 
