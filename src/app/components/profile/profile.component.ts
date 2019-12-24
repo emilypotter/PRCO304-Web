@@ -27,4 +27,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  public navigateToSpot(spotId) {
+    this.router.navigate(['/spot'], { queryParams: { id: spotId } });
+  }
+
 }
