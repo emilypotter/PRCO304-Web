@@ -36,6 +36,7 @@
             <p id="description">
                 {{conditions.observation}}
             </p>
+            <button (click)="addToFavourites()" *ngIf="!this.authService.isTokenExpired()" type="button" class="btn btn-info">Add to Favourites</button>
             <!-- <table>
                 <tr>
                     <td class="type">{{spot.predicted.tide[0][0].type}}</td>

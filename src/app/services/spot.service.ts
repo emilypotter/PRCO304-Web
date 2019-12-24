@@ -45,4 +45,9 @@ export class SpotService {
   public getSpotByNameLambda(name: string): Observable<LambdaResponse> {
     return this.http.get<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/spotname?name=${name}`);
   }
+
+  public addSpotToFavourites(userId: string, spotObj: any): Observable<LambdaResponse> {
+    console.log(userId);
+    return this.http.post<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers/favourite?userId=${userId}`, spotObj);
+  }
 }

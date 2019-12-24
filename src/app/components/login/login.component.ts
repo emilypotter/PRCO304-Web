@@ -41,9 +41,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.getUserByUsername(this.username).subscribe((userData: any) => {
       if (userData) {
-        console.log('success');
         this.authService.comparePassword(this.password, userData[0].password).subscribe((res: any) => {
-          this.authService.storeUserData(res.token, userData[0].username);
+          this.authService.storeUserData(res.token, userData[0].username, userData[0]._id);
           this.router.navigate(['']).then(() => {
             this.toastr.success('Success', 'Logged in');
           });

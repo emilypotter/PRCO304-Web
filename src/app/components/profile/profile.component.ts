@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { SpotService } from '../../services/spot.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,16 +11,19 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   user: any;
+  favourites = [];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private spotService: SpotService) { }
 
   ngOnInit() {
-    this.authService.getProfile().subscribe((profile: any) => {
-      this.user = profile.user;
-    },
-    err => {
-      console.log(err);
-      return false;
+    this.authService.loadUsername();
+    this.authService.getUserByUsername(this.authService.username).subscribe((user: any) => {
+      this.user = user[0];
+      this.user.favourites.forEach(spot => {
+        this.spotService.getSpotByIdLambda(spot.spot).subscribe((fav: any) => {
+          this.favourites.push(fav[0]);
+        });
+      });
     });
   }
 

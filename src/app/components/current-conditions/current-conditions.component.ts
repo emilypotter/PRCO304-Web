@@ -1,10 +1,13 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentWeather } from '../../model/currentWeatherModel';
 import { Forecast, Wave } from '../../model/forecastModel';
 import { Conditions, SurflineSpot, SurflineSpotConditions } from '../../model/spotModel';
 import { SpotService } from '../../services/spot.service';
 import { WeatherService } from '../../services/weather.service';
+import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-current-conditions',
@@ -13,7 +16,7 @@ import { WeatherService } from '../../services/weather.service';
 })
 export class CurrentConditionsComponent implements OnInit {
 
-  constructor(public spotService: SpotService, private route: ActivatedRoute, private weatherService: WeatherService) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, public spotService: SpotService, private route: ActivatedRoute, private weatherService: WeatherService, public authService: AuthService, private toastr: ToastrService) { }
   public conditions: Conditions;
   public forecast: Wave[];
   public flat = false;
@@ -21,13 +24,13 @@ export class CurrentConditionsComponent implements OnInit {
   // @Input() spot: SurflineSpot;
 
   ngOnInit() {
+    console.log(this.localStorage.id);
     this.route.queryParams.subscribe(params => {
       this.spotService.getSpotByIdLambda(params.id).subscribe(spot => {
         this.spotService.selectedSpot = spot[0];
         this.weatherService.selectedSpot = spot[0];
         this.getConditions();
         this.getCurrentWeather();
-        console.log(this.spotService.selectedSpot);
       });
     });
   }
@@ -47,6 +50,18 @@ export class CurrentConditionsComponent implements OnInit {
     });
   }
 
-  // NEXT: star ratings, profile, fav spots, tests, spot pics, figure out what to do when there's no best (maybe research it from another site), input best data in db for all spots
+  public addToFavourites() {
+    const spot = {
+      spot: this.spotService.selectedSpot._id
+    };
+
+    this.spotService.addSpotToFavourites(this.localStorage.id, spot).subscribe((res: any) => {
+      this.toastr.success('Success', 'Spot added to favourites');
+    }, error => {
+      this.toastr.error('Error', 'Unable to add spot to favourites ' + error);
+    });
+  }
+
+  // NEXT: profile, fav spots, tests, spot pics, input best data in db for all spots, web sockets
 
 }
