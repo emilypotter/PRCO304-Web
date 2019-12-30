@@ -83,7 +83,7 @@ export class NearbySpotsComponent implements OnInit {
     const service = new google.maps.places.PlacesService(this.map);
     service.nearbySearch({
       location: { lat: latitude, lng: longitude },
-      radius: 1000,
+      radius: 3000,
       // type: 'store',
       keyword: 'surf'
     }, (results, status) => {
