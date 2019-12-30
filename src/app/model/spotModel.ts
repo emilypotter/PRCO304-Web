@@ -1,4 +1,5 @@
 export class Spot {
+    // tslint:disable-next-line:variable-name
     _id: string;
     spotName: string;
     surflineId: string;
@@ -77,6 +78,7 @@ export class Predicted {
 }
 
 export class Tide {
+    // tslint:disable-next-line:variable-name
     clock_time: string;
     height: number;
     type: string;
@@ -87,6 +89,7 @@ export class Current {
 }
 
 export class Wind {
+    // tslint:disable-next-line:variable-name
     dir_card: string;
     speed: number;
     dir: number;

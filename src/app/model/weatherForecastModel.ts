@@ -1,5 +1,3 @@
-// NEXT: MAKE THIS WORK FOR OPENWEATHER API
-
 export class WeatherForecast {
   list: List[];
 }

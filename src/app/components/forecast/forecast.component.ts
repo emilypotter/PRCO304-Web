@@ -20,7 +20,7 @@ export class ForecastComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() { // best way to do this????? as doing the same in current conditions
+  ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.spotService.getSpotByIdLambda(params.id).subscribe((spot: any) => {
         this.weatherService.selectedSpot = spot[0];

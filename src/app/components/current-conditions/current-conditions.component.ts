@@ -62,6 +62,6 @@ export class CurrentConditionsComponent implements OnInit {
     });
   }
 
-  // NEXT: profile, fav spots, tests, spot pics, input best data in db for all spots, web sockets
+  // NEXT: tests, spot pics, input best data in db for all spots, web sockets
 
 }
