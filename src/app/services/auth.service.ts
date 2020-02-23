@@ -71,8 +71,12 @@ export class AuthService {
   }
 
   isTokenExpired() {
-    const isExpired = helper.isTokenExpired(this.localStorage.id_token);
-    return isExpired;
+    if (this.localStorage.id_token) {
+      const isExpired = helper.isTokenExpired(this.localStorage.id_token);
+      return isExpired;
+    } else {
+      return true;
+    }
   }
 
   public logout() {
