@@ -71,7 +71,7 @@ export class AuthService {
   }
 
   isTokenExpired() {
-    if (this.localStorage.id_token !== undefined) {
+    if (this.localStorage.id_token !== 'undefined') {
       const isExpired = helper.isTokenExpired(this.localStorage.id_token);
       return isExpired;
     } else {
