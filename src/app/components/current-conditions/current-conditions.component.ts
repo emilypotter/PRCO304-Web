@@ -24,7 +24,6 @@ export class CurrentConditionsComponent implements OnInit {
   // @Input() spot: SurflineSpot;
 
   ngOnInit() {
-    console.log(this.localStorage.id);
     this.route.queryParams.subscribe(params => {
       this.spotService.getSpotByIdLambda(params.id).subscribe(spot => {
         this.spotService.selectedSpot = spot[0];

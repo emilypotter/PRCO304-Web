@@ -50,4 +50,8 @@ export class SpotService {
     console.log(userId);
     return this.http.post<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers/favourite?userId=${userId}`, spotObj);
   }
+
+  public getMagicSeaweedData(id: string): Observable<any> {
+    return this.http.jsonp<any>(`http://magicseaweed.com/api/614ddb3e7cc8e58fa7dbc292df0e730e/forecast/?spot_id=${id}`, 'callback');
+  }
 }

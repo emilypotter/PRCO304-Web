@@ -34,6 +34,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { StarRatingModule } from 'angular-star-rating';
 import { ChatComponent } from './components/chat/chat.component';
+import { MswComponent } from './components/msw/msw.component';
+import { HttpClientJsonpModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { ChatComponent } from './components/chat/chat.component';
     CurrentConditionsComponent,
     ForecastComponent,
     NearbySpotsComponent,
-    ChatComponent
+    ChatComponent,
+    MswComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { ChatComponent } from './components/chat/chat.component';
     NgxSmartModalModule.forRoot(),
     FontAwesomeModule,
     NgxGalleryModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    HttpClientJsonpModule
   ],
   providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]

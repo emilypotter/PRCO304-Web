@@ -9,6 +9,7 @@ export class Spot {
     googleId: string;
     m3u8: string;
     best: Best;
+    mswId: string;
 }
 
 export class LambdaResponse {

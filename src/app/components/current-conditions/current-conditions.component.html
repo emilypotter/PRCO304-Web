@@ -4,12 +4,12 @@
     </h1>
     <div class="row">
         <div *ngIf="spotService.selectedSpot" id="image" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img src="../../../assets/images/{{spotService.selectedSpot.spotName}}.jpg" alt="image spot">
-            <!-- <vg-player>
+            <!-- <img src="../../../assets/images/{{spotService.selectedSpot.spotName}}.jpg" alt="image spot"> -->
+            <vg-player>
                 <video #myMedia autoplay="true" [vgHls]="spotService.selectedSpot.m3u8" (onGetBitrates)="hlsBitrates = $event"
                     id="my-video" type="video/mp4" controls>
                 </video>
-            </vg-player> -->
+            </vg-player>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="conditions">
             <ng-container [ngSwitch]=flat>
