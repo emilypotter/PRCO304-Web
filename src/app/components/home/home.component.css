@@ -1,0 +1,56 @@
+.bg-img {
+  /* The image used */
+  background-image: url("../../../assets/Img/IMG_0921.jpg");
+  max-height: calc(100% - 59px);
+  height: calc(100% - 59px);
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  /* Put search boxes in centre of screen */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+font-size: 20px;
+text-align: center;
+height: 200px;
+border-radius: 4px;
+max-width: 500px;
+padding: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.btn {
+height: 38px;
+}
+
+.example-form {
+min-width: 150px;
+max-width: 500px;
+width: 100%;
+}
+
+.example-full-width {
+width: 100%;
+}
+
+.search-area {
+background-color: black;
+opacity: 0.5;
+margin-top: 30px;
+color: #ffffff;
+border-radius: 5px;
+}
+
+mat-form-field {
+width: 100%;
+}

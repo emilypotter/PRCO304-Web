@@ -1,0 +1,22 @@
+<div class='container'>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-current-conditions></app-current-conditions>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-forecast></app-forecast>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-nearby-spots *ngIf="spot" [spot]="spot"></app-nearby-spots>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-msw></app-msw>
+        </div>
+    </div>
+</div>
