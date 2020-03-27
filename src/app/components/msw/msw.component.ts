@@ -11,12 +11,16 @@ export class MswComponent implements OnInit {
 
   constructor(public spotService: SpotService, private route: ActivatedRoute) { }
 
+  public mswData: any;
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.spotService.getSpotByIdLambda(params.id).subscribe(spot => {
         this.spotService.selectedSpot = spot[0]; // in case page is refreshed
         this.spotService.getMagicSeaweedData(spot[0].mswId).subscribe((data: any) => {
-          console.log(data[4]);
+          this.mswData = data[4];
+        }, error => {
+          console.log(error);
         });
       });
     });

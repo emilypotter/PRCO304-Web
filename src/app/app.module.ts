@@ -36,6 +36,9 @@ import { StarRatingModule } from 'angular-star-rating';
 import { ChatComponent } from './components/chat/chat.component';
 import { MswComponent } from './components/msw/msw.component';
 import { HttpClientJsonpModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,10 @@ import { HttpClientJsonpModule } from '@angular/common/http';
     FontAwesomeModule,
     NgxGalleryModule,
     StarRatingModule.forRoot(),
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    MatTabsModule,
+    NgbModule,
+    NgbNavModule
   ],
   providers: [AuthGuard, SpotService, WeatherService],
   bootstrap: [AppComponent]
