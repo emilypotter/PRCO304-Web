@@ -10,7 +10,7 @@ describe('AuthService', () => {
     imports: [NgtUniversalModule, HttpClientModule]
   }));
 
-  it('should be created', () => {
+  it('should be create', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
