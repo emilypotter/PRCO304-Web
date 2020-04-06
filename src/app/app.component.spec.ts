@@ -31,6 +31,7 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { StarRatingModule } from 'angular-star-rating';
+import { ChatComponent } from './components/chat/chat.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -46,7 +47,8 @@ describe('AppComponent', () => {
     SpotDetailComponent,
     CurrentConditionsComponent,
     ForecastComponent,
-    NearbySpotsComponent
+    NearbySpotsComponent,
+    ChatComponent
        ],
       imports: [
         RouterTestingModule,

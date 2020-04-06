@@ -32,6 +32,7 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { StarRatingModule } from 'angular-star-rating';
+import { ChatComponent } from '../chat/chat.component';
 
 describe('ForecastComponent', () => {
   let component: ForecastComponent;
@@ -50,7 +51,8 @@ describe('ForecastComponent', () => {
     SpotDetailComponent,
     CurrentConditionsComponent,
     ForecastComponent,
-    NearbySpotsComponent
+    NearbySpotsComponent,
+    ChatComponent
        ],
       imports: [
         BrowserModule,

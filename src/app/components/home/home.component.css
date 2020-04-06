@@ -54,3 +54,12 @@ border-radius: 5px;
 mat-form-field {
 width: 100%;
 }
+
+#chat {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}

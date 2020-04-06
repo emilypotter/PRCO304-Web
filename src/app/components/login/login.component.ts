@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.getUserByUsername(this.username).subscribe((userData: any) => {
-      if (userData) {
+      if (userData.length > 0) {
         this.authService.comparePassword(this.password, userData[0].password).subscribe((res: any) => {
           if (res.success) {
             this.authService.storeUserData(res.token, userData[0].username, userData[0]._id);
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           }
         });
       } else {
-        console.log('unable to get user');
+        this.toastr.error('Incorrect email or password', 'Error');
       }
     });
   }

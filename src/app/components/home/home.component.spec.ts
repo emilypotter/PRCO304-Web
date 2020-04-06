@@ -31,6 +31,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CurrentConditionsComponent } from '../current-conditions/current-conditions.component';
 import { ForecastComponent } from '../forecast/forecast.component';
 import { NearbySpotsComponent } from '../nearby-spots/nearby-spots.component';
+import { ChatComponent } from '../chat/chat.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -49,7 +50,8 @@ describe('HomeComponent', () => {
     SpotDetailComponent,
     CurrentConditionsComponent,
     ForecastComponent,
-    NearbySpotsComponent
+    NearbySpotsComponent,
+    ChatComponent
        ],
       imports: [
         BrowserModule,
