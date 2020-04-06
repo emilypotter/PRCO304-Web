@@ -36,7 +36,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-7">
+    <div *ngIf="photosLoaded" class="col-lg-7">
       <h1>
         Gallery
       </h1>
@@ -108,7 +108,7 @@
       </ngx-gallery>
     </div>
     <div *ngIf="placeDetails" class="row">
-      <div class="col-lg-6" *ngIf="placeDetails">
+      <div class="col-lg-12" *ngIf="placeDetails">
         <div>
           <b>Address: </b>{{placeDetails.formatted_address}}
         </div>
@@ -117,18 +117,14 @@
         </div>
         <br>
         <div>
-          <b>Rating: </b>
           <!-- <star-rating *ngIf="placeDetails.rating > 0" style="display: inline-flex;" [starType]="'svg'"
             [rating]="placeDetails.rating" [labelText]="placeDetails.user_ratings_total" labelPosition="right"
             staticColor="ok" [readOnly]="true">
           </star-rating> -->
-          <span *ngIf="placeDetails.rating == 0 || !placeDetails.rating">
-            <i>No rating yet</i>
-          </span>
         </div>
         <hr>
       </div>
-      <div *ngIf="placeDetails.weekday_text" class="col-lg-6">
+      <div *ngIf="placeDetails.weekday_text" class="col-lg-12">
         <div>
           <b>Opening times:</b>
         </div>
