@@ -27,15 +27,15 @@ export class RegisterComponent implements OnInit {
    public onRegisterSubmit() {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(this.password, salt, (ERROR: any, hash: any) => {
-        if (ERROR) { throw ERROR; }
-        this.hashedPassword = hash;
+        if (this.password !== '') { // otherwise empty string is hashed if no password is entered
+          this.hashedPassword = hash;
+        }
         const user = {
           name: this.name,
           username: this.username,
           email: this.email,
           password: this.hashedPassword
         };
-
         // required fields
         if (!this.validateService.validateRegister(user)) {
       this.toastr.error('All fields are required', 'Error');
@@ -49,6 +49,8 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/register']);
       return false;
     }
+
+        if (ERROR) { throw ERROR; }
 
     // // register user
         this.authService.registerUser(user).subscribe(() => {
