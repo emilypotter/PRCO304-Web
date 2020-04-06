@@ -61,6 +61,4 @@ export class CurrentConditionsComponent implements OnInit {
     });
   }
 
-  // NEXT: spot pics, input best data in db for all spots
-
 }

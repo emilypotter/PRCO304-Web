@@ -28,24 +28,17 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
 
-    // this.authService.authenticateUser(user).subscribe((data: any) => {
-    //     if (data.success) {
-    //       this.authService.storeUserData(data.token, data.user);
-    //       this.toastr.success('Successfully Logged In', 'Success');
-    //       this.router.navigate(['']);
-    //     } else {
-    //       this.toastr.error('Unable To Login', 'Error');
-    //       this.router.navigate(['login']);
-    //     }
-    // });
-
     this.authService.getUserByUsername(this.username).subscribe((userData: any) => {
       if (userData) {
         this.authService.comparePassword(this.password, userData[0].password).subscribe((res: any) => {
-          this.authService.storeUserData(res.token, userData[0].username, userData[0]._id);
-          this.router.navigate(['']).then(() => {
-            this.toastr.success('Success', 'Logged in');
-          });
+          if (res.success) {
+            this.authService.storeUserData(res.token, userData[0].username, userData[0]._id);
+            this.router.navigate(['']).then(() => {
+            this.toastr.success('Logged in', 'Success');
+            });
+          } else {
+            this.toastr.error('Incorrect email or password', 'Error');
+          }
         });
       } else {
         console.log('unable to get user');
