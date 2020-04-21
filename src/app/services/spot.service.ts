@@ -52,6 +52,6 @@ export class SpotService {
   }
 
   public getMagicSeaweedData(id: string): Observable<any> {
-    return this.http.jsonp<any>(`http://magicseaweed.com/api/614ddb3e7cc8e58fa7dbc292df0e730e/forecast/?spot_id=${id}`, 'callback');
+    return this.http.jsonp<any>(`https://magicseaweed.com/api/614ddb3e7cc8e58fa7dbc292df0e730e/forecast/?spot_id=${id}`, 'callback');
   }
 }
