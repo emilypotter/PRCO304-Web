@@ -3,7 +3,11 @@
         For the pros
         <a href="http://magicseaweed.com"><img src="https://im-1-uk.msw.ms/msw_powered_by.png"></a>
     </h1>
+    <div style="font-style: italic;">Hint: Click on the chart to see a description</div>
     <div class="row">
+      <div class="col-lg-7">
+        <ngx-gallery *ngIf="photosLoaded" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+      </div>
       <div class="col-lg-5">
         <div *ngIf="mswData" class="row">
           <div class="col-lg-6 day">
@@ -11,7 +15,7 @@
               Swell direction
             </div>
             <div class="icon">
-                <i class="wi wi-wind from-{{mswData.swell.components.primary.direction | number:'1.0-0'}}-deg"></i>
+                <i class="wi wi-wind towards-{{mswData.swell.components.primary.direction | number:'1.0-0'}}-deg"></i>
             </div>
             <div class="pro-direction">
               {{mswData.swell.components.primary.compassDirection}}
@@ -22,7 +26,7 @@
               Wind gusts
             </div>
             <div class="icon">
-              <i class="wi wi-wind from-{{mswData.wind.direction | number:'1.0-0'}}-deg"></i>
+              <i class="wi wi-wind towards-{{mswData.wind.direction | number:'1.0-0'}}-deg"></i>
           </div>
             <div class="pro-direction">
               {{mswData.wind.gusts}}mph
@@ -51,9 +55,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-7">
-        <ngx-gallery *ngIf="photosLoaded" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
       </div>
     </div>
     
