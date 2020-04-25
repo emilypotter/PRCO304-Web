@@ -90,14 +90,9 @@ export class CurrentConditionsComponent implements OnInit {
           this.isFav = false;
         }
       }
-      // this.user.favourites.forEach(spot => {
-      //   if (spot.spot === spotId) {
-      //     this.isFav = true;
-      //     break;
-      //   } else {
-      //     this.isFav = false;
-      //   }
-      // });
+      if (this.user.favourites.length === 0) {
+        this.isFav = false;
+      }
       console.log(this.isFav);
     });
   }
