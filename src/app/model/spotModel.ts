@@ -14,7 +14,7 @@ export class Spot {
 
 export class LambdaResponse {
     body: string;
-    status: string;
+    status: number;
 }
 
 export class Region {

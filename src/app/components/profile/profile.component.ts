@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { SpotService } from '../../services/spot.service';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,9 @@ export class ProfileComponent implements OnInit {
   user: any;
   favourites = [];
 
-  constructor(private authService: AuthService, private router: Router, private spotService: SpotService) { }
+  faTrashAlt = faTrashAlt;
+
+  constructor(private authService: AuthService, private router: Router, private spotService: SpotService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.authService.loadUsername();
@@ -29,6 +33,14 @@ export class ProfileComponent implements OnInit {
 
   public navigateToSpot(spotId) {
     this.router.navigate(['/spot'], { queryParams: { id: spotId } });
+  }
+
+  public removeFavouriteSpot(userId, spotId) {
+    this.spotService.removeSpotFromFavourites(userId, spotId).subscribe(() => {
+        this.toastr.success('Success', 'Spot removed from favourites');
+    }, error => {
+      this.toastr.success('Error', 'Could not remove spot from favourites ' + error);
+    });
   }
 
 }

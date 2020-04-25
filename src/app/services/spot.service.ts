@@ -51,6 +51,10 @@ export class SpotService {
     return this.http.post<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers/favourite?userId=${userId}`, spotObj);
   }
 
+  public removeSpotFromFavourites(userId: string, spot: string): Observable<LambdaResponse> {
+    return this.http.delete<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers/favourite/remove?id=${userId}&spot=${spot}`);
+  }
+
   public getMagicSeaweedData(id: string): Observable<any> {
     return this.http.jsonp<any>(`https://magicseaweed.com/api/614ddb3e7cc8e58fa7dbc292df0e730e/forecast/?spot_id=${id}`, 'callback');
   }

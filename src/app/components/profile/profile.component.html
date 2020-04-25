@@ -14,10 +14,16 @@
         
     <h2>Favourite Spots</h2>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor="let spot of favourites">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor="let spot of favourites"  #item>
             <img style="cursor: pointer;" (click)="navigateToSpot(spot._id)" src="../../../assets/images/{{spot.spotName}}.jpg" alt="" width="500" height="250">
             <div id="name">
-                {{spot.spotName}}
+                <span>
+                    {{spot.spotName}}
+                </span>
+                <span>
+                    <fa-icon style="cursor: pointer;" [icon]="faTrashAlt" (click)="removeFavouriteSpot(user._id, spot._id);item.remove()"></fa-icon>
+                    <!-- <button (click)="removeFavouriteSpot(user._id, spot._id);item.remove()">Delete</button> -->
+                </span>
             </div>
         </div>
     </div>
