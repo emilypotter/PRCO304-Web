@@ -34,7 +34,7 @@
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "css-star-rating": "^1.2.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "hls.js": "^0.13.0",
